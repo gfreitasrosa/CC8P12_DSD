@@ -7,9 +7,9 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
     try {
         // Faz a requisição ao backend
-        const response = await fetch('https://422f-2804-7f0-93c0-4ba0-3456-e248-1072-d65f.ngrok-free.app/api/login/', {
+        const response = await fetch('https://f70d-201-27-100-165.ngrok-free.app/api/login/', {
             // http://localhost:8000/api/login/ -> LOCALHOST
-            // https://525f-2804-7f0-93c0-4ba0-f11a-3ffe-9590-3cbf.ngrok-free.app -> NGROK
+            // https://525f-2804-7f0-93c0-4ba0-f11a-3ffe-9590-3cbf.ngrok-free.app/api/login/ -> NGROK
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
