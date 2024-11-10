@@ -7,7 +7,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
     try {
         // Faz a requisição ao backend
-        const response = await fetch('https://gfreitasrosa.pythonanywhere.com/api/login', {
+        const response = await fetch('https://gfreitasrosa.pythonanywhere.com/api/login/', {
             // http://localhost:8000/api/login/ -> LOCALHOST
             // https://525f-2804-7f0-93c0-4ba0-f11a-3ffe-9590-3cbf.ngrok-free.app/api/login/ -> NGROK
             method: 'POST',
