@@ -26,7 +26,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             const data = await response.json();
             // Redireciona o usuário ou exibe uma mensagem de sucesso
             alert('Login bem-sucedido!');
-            window.location.href = '/dashboard'; // Exemplo de redirecionamento
+            window.location.href = '/home'; // Exemplo de redirecionamento
         } else {
             // Lida com erros, por exemplo, credenciais inválidas
             document.getElementById('error-message').style.display = 'block';
