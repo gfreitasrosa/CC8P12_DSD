@@ -2,8 +2,40 @@ import json
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+
+# Definindo os parâmetros esperados para a requisição POST
+login_request_body = openapi.Schema(
+    type=openapi.TYPE_OBJECT,
+    properties={
+        'email': openapi.Schema(type=openapi.TYPE_STRING, description='Email do usuário'),
+        'password': openapi.Schema(type=openapi.TYPE_STRING, description='Senha do usuário'),
+    },
+    required=['email', 'password'],
+)
+
+login_response_200 = openapi.Response(
+    description='Login bem-sucedido',
+    schema=openapi.Schema(type=openapi.TYPE_OBJECT, properties={'message': openapi.Schema(type=openapi.TYPE_STRING)}),
+)
+
+login_response_400 = openapi.Response(
+    description='Erro no formato do JSON ou parâmetros obrigatórios faltando',
+    schema=openapi.Schema(type=openapi.TYPE_OBJECT, properties={'message': openapi.Schema(type=openapi.TYPE_STRING)}),
+)
+
+login_response_401 = openapi.Response(
+    description='Credenciais inválidas',
+    schema=openapi.Schema(type=openapi.TYPE_OBJECT, properties={'message': openapi.Schema(type=openapi.TYPE_STRING)}),
+)
 
 @csrf_exempt
+@swagger_auto_schema(
+    methods=['POST'],
+    request_body=login_request_body,
+    responses={200: login_response_200, 400: login_response_400, 401: login_response_401}
+)
 def login_view(request):
     if request.method == 'OPTIONS':
         response = HttpResponse(status=200)
