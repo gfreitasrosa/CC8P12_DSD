@@ -20,12 +20,6 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('login.urls')),  # Inclua as rotas do app
-    path('swagger/', schema_view.with_ui('swagger'), name='schema-swagger-ui'),
-]
-
 # Configuração do Schema View (documentação)
 schema_view = get_schema_view(
     openapi.Info(
@@ -39,6 +33,13 @@ schema_view = get_schema_view(
     public=True,
     permission_classes=(permissions.AllowAny,),
 )
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('login.urls')),  # Inclua as rotas do app
+    path('swagger/', schema_view.with_ui('swagger'), name='schema-swagger-ui'),
+]
+
 
 
 
