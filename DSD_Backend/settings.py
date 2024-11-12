@@ -133,6 +133,9 @@ CORS_ALLOW_ALL_ORIGINS = True
 # Desativar CSRF
 CSRF_USE_SESSIONS = False
 
+MEDIA_URL = '/media/'
+STATIC_ROOT = Path(BASE_DIR / 'static')
+MEDIA_ROOT = Path(BASE_DIR / 'media')
 
 CSRF_TRUSTED_ORIGINS = [
     "https://dsd-cc8p12.netlify.app"
