@@ -23,7 +23,7 @@ from drf_yasg import openapi
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('login.urls')),  # Inclua as rotas do app
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('swagger/', schema_view.with_ui('swagger'), name='schema-swagger-ui'),
 ]
 
 # Configuração do Schema View (documentação)
